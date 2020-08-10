@@ -1,0 +1,18 @@
+
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="row between-xs header-row">
+            <nav>
+                <a mat-button *ngIf="!isAuthenticated()" routerLink="/login">Login</a>
+                <a mat-button *ngIf="isAuthenticated()" (click)="logout()" routerLink="/login">Logout</a>
+                <a mat-button routerLink="/books">Books</a>
+                <a mat-button *ngIf="isAdmin()" routerLink="/admin">Admin</a>
+            </nav>
+            <a routerLink="/order" mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
+                <mat-icon>shopping_cart</mat-icon>
+                Carrito
+              </a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
